@@ -1,0 +1,37 @@
+<form name="myForm">
+    <!-- with ng-class, it loads an 'error' class if the name input is invalid -->
+    <div class="control-group" ng-class="{error: myForm.name.$invalid}">
+        <label>Name</label>
+        <!-- with the 'required' attr, the input is invaled if empty. -->
+        <!-- project is defined by its asigned controller controller -->
+        <input type="text" name="name" ng-model="project.name" required>
+        <!-- ng-show shows this span if name is empty -->
+        <span ng-show="myForm.name.$error.required" class="help-inline">
+            Required
+        </span>
+    </div>
+    
+    <div class="control-group" ng-class="{error: myForm.site.$invalid}">
+        <label>Website</label>
+        <input type="url" name="site" ng-model="project.site" required>
+        <span ng-show="myForm.site.$error.required" class="help-inline">
+            Required
+        </span>
+        <span ng-show="myForm.site.$error.url" class="help-inline">
+            Not a URL
+        </span>
+    </div>
+    
+    <label>Description</label>
+    <textarea name="description" ng-model="project.description"></textarea>
+    
+    <br>
+    <a href="#/" class="btn">Cancel</a>
+    
+    <!-- save() & destroy() are defined at project.js.EditCtrl() -->
+    <!-- ng-disabled hides the save button until the page is valid -->
+    <button ng-click="save()" ng-disabled="isClean() || myForm.$invalid"
+            class="btn btn-primary">Save</button>
+    <button ng-click="destroy()" ng-show="project._id"
+            class="btn btn-danger">Delete</button>
+</form>
