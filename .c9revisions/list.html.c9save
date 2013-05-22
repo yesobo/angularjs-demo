@@ -1,0 +1,2 @@
+{"ts":1366964741516,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1366964743899,"patch":[[{"diffs":[[1,"<input type=\"text\" ng-model=\"search\" class=\"search-query\" placeholder=\"Search\">\n<table>\n    <thead>\n        <tr>\n            <th>Project</th>\n            <th>Description</th>\n            <th><a href=\"#/new\"><i class=\"icon-plus-sign\"></i></a></th>\n        </tr>\n    </thead>\n</table>"]],"start1":0,"start2":0,"length1":0,"length2":282}]],"length":282,"saved":false}
