@@ -1,0 +1,39 @@
+<!doctype>
+<!-- ng-app activates the components module at this region -->
+<html ng-app="components">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js">
+        </script>
+        <script src="components.js">
+        </script>
+        <script src="beers.js">
+        </script>
+        
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- tabs custom tag is defined at components module declared at components.js -->
+        <tabs>
+            <!-- pane custom tag is defined at components module -->
+            <pane title="Localization">
+                Date: {{ '2012-04-01' | date: 'fullDate'}} <br />
+                Currency: {{123456 | currency }} <br />
+                Number: {{ 98765.4321 | number }} <br />
+            </pane>
+
+            <pane title="Pluralization">
+                <!-- BeerCounter is defined at beers.js -->
+                <div ng-controller="BeerCounter">
+                    <!-- beers are defined at BeerCounter controller -->
+                    <div ng-repeat="beerCount in beers">
+                        <!-- ng-pluralize selects the format determined by beerForms for the locale -->
+                        <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+                    </div>
+                </div>
+            </pane>
+
+        </tabs>
+    </body>
+</html>
